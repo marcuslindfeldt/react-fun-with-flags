@@ -1,0 +1,17 @@
+{
+  "env": {
+    "browser": true,
+    "jest/globals": true
+  },
+  "root": true,
+  "extends": [
+    "airbnb",
+    "plugin:jest/recommended",
+    "prettier"
+  ],
+  "parser": "babel-eslint",
+  "plugins": [
+    "jest",
+    "prettier"
+  ]
+}

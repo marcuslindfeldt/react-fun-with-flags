@@ -1,12 +1,9 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { loadLocalFlags } from './localStorage';
+import { Provider } from './FlagContext';
 
 class FlagProvider extends Component {
-  static childContextTypes = {
-    flags: PropTypes.object,
-  };
-
   static propTypes = {
     children: PropTypes.node.isRequired,
     flags: PropTypes.shape({}).isRequired,
@@ -15,20 +12,18 @@ class FlagProvider extends Component {
   constructor(props) {
     super(props);
 
-    this.flags = {
+    this.state.flags = {
       ...props.flags,
       ...loadLocalFlags(),
     };
   }
 
-  getChildContext() {
-    return {
-      flags: this.flags,
-    };
-  }
-
   render() {
-    return this.props.children;
+    return (
+      <Provider value={this.state.flags}>
+        {this.props.children}
+      </Provider>
+    );
   }
 }
 

@@ -13,7 +13,7 @@ module.exports = {
     ],
   },
   output: {
-    path: path.resolve(__dirname, 'dist'),
+    path: path.resolve(__dirname, 'umd'),
     filename: 'react-fun-with-flags.js',
     libraryTarget: 'umd',
     library: 'ReactFunWithFlags',

@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
-import { Consumer } from './FlagContext';
+import FlagContext from './FlagContext';
 
 class Flag extends Component {
   static propTypes = {
@@ -10,7 +10,7 @@ class Flag extends Component {
 
   render() {
     return (
-      <Consumer>
+      <FlagContext.Consumer>
         {flags => {
           const flag = flags[this.props.name];
 
@@ -21,7 +21,7 @@ class Flag extends Component {
 
           return this.props.children(flag);
         }}
-      </Consumer>
+      </FlagContext.Consumer>
     );
   }
 }

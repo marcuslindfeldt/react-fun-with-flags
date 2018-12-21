@@ -1,14 +1,15 @@
 import React from 'react';
 import hoistNonReactStatics from 'hoist-non-react-statics';
-import { Consumer } from './FlagContext';
+import FlagContext from './FlagContext';
 
 const withFlag = WrappedComponent => {
   const WithFlag = ({ forwardedRef, ...props }) => (
-    <Consumer>
-      {({ flags }) => (
+    <FlagContext.Consumer>
+      {(flags) => (
         <WrappedComponent
           ref={forwardedRef}
           checkFlag={flag => {
+            console.log("flags", flags);
             const hasFlag = flags[flag];
 
             if (typeof flag === 'undefined') {
@@ -21,7 +22,7 @@ const withFlag = WrappedComponent => {
           {...props}
         />
       )}
-    </Consumer>
+    </FlagContext.Consumer>
   );
 
   return WithFlag;

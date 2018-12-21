@@ -1,5 +1,5 @@
 import React from 'react';
 
-const FlagContext = React.createContext('fun-with-flags');
+const FlagContext = React.createContext({});
 
 export default FlagContext;

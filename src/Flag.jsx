@@ -1,25 +1,28 @@
-import { Component } from 'react';
+import React, { Component } from 'react';
 import PropTypes from 'prop-types';
+import FlagContext from './FlagContext';
 
 class Flag extends Component {
-  static contextTypes = {
-    flags: PropTypes.object,
-  };
-
   static propTypes = {
     children: PropTypes.func.isRequired,
     name: PropTypes.string.isRequired,
   };
 
   render() {
-    const flag = this.context.flags[this.props.name];
+    return (
+      <FlagContext.Consumer>
+        {flags => {
+          const flag = flags[this.props.name];
 
-    if (typeof flag === 'undefined') {
-      // eslint-disable-next-line no-console
-      console.error('Flag name does not exist');
-    }
+          if (typeof flag === 'undefined') {
+            // eslint-disable-next-line no-console
+            console.error('Flag name does not exist');
+          }
 
-    return this.props.children(flag);
+          return this.props.children(flag);
+        }}
+      </FlagContext.Consumer>
+    );
   }
 }
 

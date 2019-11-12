@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import PropTypes from 'prop-types';
 import { loadLocalFlags } from './localStorage';
-import FlagContext from './FlagContext';
+import FlagContext, { FlagContextType } from './FlagContext';
 
 class FlagProvider extends Component {
   static propTypes = {
@@ -9,16 +9,16 @@ class FlagProvider extends Component {
     flags: PropTypes.shape({}).isRequired,
   };
 
-  state = {
-    flags: {}
-  }
+  state: { flags: FlagContextType } = {
+    flags: {},
+  };
 
-  constructor(props) {
+  constructor(props: any) {
     super(props);
 
     this.state.flags = {
       ...props.flags,
-      ...(loadLocalFlags() || {}),
+      ...(loadLocalFlags() || {}),
     };
   }
 

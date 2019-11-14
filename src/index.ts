@@ -5,6 +5,7 @@ export { default as FlagProvider } from './FlagProvider';
 export { default as FlagEnabled } from './FlagEnabled';
 export { default as FlagDisabled } from './FlagDisabled';
 export { default as withFlag } from './withFlag';
+export { default as useFlag } from './useFlag';
 
 type ReactFunWithFlags = {
   enable: (flag: string) => void;

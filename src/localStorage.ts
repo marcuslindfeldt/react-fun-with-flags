@@ -4,7 +4,9 @@ export const loadLocalFlags = (): FlagContextType => {
   let localFlags = {};
 
   try {
-    localFlags = JSON.parse(localStorage.getItem('react-fun-with-flags') || "{}");
+    localFlags = JSON.parse(
+      localStorage.getItem('react-fun-with-flags') || '{}'
+    );
     // eslint-disable-next-line no-empty
   } catch (e) {}
 

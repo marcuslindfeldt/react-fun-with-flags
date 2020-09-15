@@ -18,7 +18,7 @@ npm install react-fun-with-flags
 
 Add the `FlagProvider` to your `App`.
 
-```
+```jsx
 import React from 'react';
 import { FlagProvider } from 'react-fun-with-flags';
 
@@ -36,7 +36,7 @@ Then toggle your components with the help of the `Flag`, `FlagEnabled`, `FlagDis
 
 Example:
 
-```
+```jsx
 import React from 'react';
 import { FlagEnabled } from 'react-fun-with-flags';
 
